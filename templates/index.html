@@ -1,0 +1,9 @@
+<html>
+    <body>
+        <h1>Welcome to the world of food!</h1>
+        {% for restaurant in restaurants %}
+        <a href="/restaurants/{{ restaurant.id }}/menu">{{ restaurant.name }}</a>
+        <br>
+        {% endfor %}
+    </body>
+</html>

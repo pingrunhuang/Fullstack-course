@@ -1,0 +1,43 @@
+<html>
+
+  <body>
+
+    <h1>{{restaurant.name}}</h1>
+    <!-- {{}} specify the printed code -->
+
+    <!--MESSAGE FLASHING EXAMPLE -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <!-- {%%} specify the logical code -->
+
+    <ul>
+    {% for message in messages %}
+      <li><strong>{{message}}</strong></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+
+    {% for i in items %}
+
+    <div>
+
+      <p>{{i.name}}</p>
+
+      <p>{{i.description}}</p>
+
+      <p> {{i.price}} </p>
+
+      <a href=' {{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>Edit</a>
+      <!-- this is how we pass arguments into the url_for() function -->
+      </br>
+      <a href = '{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = i.id ) }}'>Delete</a>
+
+    </div>
+
+    {% endfor %}
+    <!-- means the end of the loop. More over, {%endif%} means the end of the if statement -->
+  </body>
+
+</html>
