@@ -1,14 +1,14 @@
 <html>
-
+{# this is the comment block #}
   <body>
 
     <h1>{{restaurant.name}}</h1>
-    <!-- {{}} specify the printed code -->
+    {# {{}} specify the printed code  #}
 
     <!--MESSAGE FLASHING EXAMPLE -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
-    <!-- {%%} specify the logical code -->
+    {# {%%} specify the logical code #}
 
     <ul>
     {% for message in messages %}
@@ -37,7 +37,7 @@
     </div>
 
     {% endfor %}
-    <!-- means the end of the loop. More over, {%endif%} means the end of the if statement -->
+    {# means the end of the loop. More over, {%endif%} means the end of the if statement #}
   </body>
 
 </html>

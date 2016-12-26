@@ -2,7 +2,7 @@
     <body>
         <h1>Welcome to the world of food!</h1>
         {% for restaurant in restaurants %}
-        <a href="/restaurants/{{ restaurant.id }}/menu">{{ restaurant.name }}</a>
+        <a href="{{ url_for('restaurantMenu', restaurant_id=restaurant.id) }}">{{ restaurant.name }}</a>
         <br>
         {% endfor %}
     </body>
