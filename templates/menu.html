@@ -38,8 +38,12 @@
 
     {% endfor %}
 
-    <a href="{{ url_for('welcome') }}">return</a>
-    {# means the end of the loop. More over, {%endif%} means the end of the if statement #}
+    <div>
+      <a href="{{ url_for('newMenuItem', restaurant_id=restaurant.id) }}">add item</a>
+      <a href="{{ url_for('welcome') }}">return</a>
+      {# means the end of the loop. More over, {%endif%} means the end of the if statement #}
+    </div>
+
   </body>
 
 </html>
