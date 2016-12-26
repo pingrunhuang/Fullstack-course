@@ -1,49 +1,51 @@
 <html>
+  <head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+  </head>
 {# this is the comment block #}
   <body>
-
-    <h1>{{restaurant.name}}</h1>
-    {# {{}} specify the printed code  #}
-
-    <!--MESSAGE FLASHING EXAMPLE -->
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {# {%%} specify the logical code #}
-
-    <ul>
-    {% for message in messages %}
-      <li><strong>{{message}}</strong></li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-
-
-    {% for i in items %}
-
-    <div>
-
-      <p>{{i.name}}</p>
-
-      <p>{{i.description}}</p>
-
-      <p> {{i.price}} </p>
-
-      <a href=' {{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>Edit</a>
-      <!-- this is how we pass arguments into the url_for() function -->
-      </br>
-      <a href = '{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = i.id ) }}'>Delete</a>
-
-    </div>
-
-    {% endfor %}
-
-    <div>
+    <div class="pane">
+      <div class="header">
+        <h1>{{restaurant.name}}</h1>
+        {# {{}} specify the printed code  #}
+      </div>
       <a href="{{ url_for('newMenuItem', restaurant_id=restaurant.id) }}">add item</a>
+      <div class="flash">
+        <!--MESSAGE FLASHING EXAMPLE -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {# {%%} specify the logical code #}
+
+        <ul>
+        {% for message in messages %}
+          <li><strong>{{message}}</strong></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+      </div>
+      {% for i in items %}
+      <div class="nameAndPrice">
+        <span class="name"><p>{{i.name}}</p></span>
+        <span class="price"><p> {{i.price}} </p></span>
+      </div>
+
+      <div class="description">
+        <p>{{i.description}}</p>
+      </div>
+
+      <div class="editdeletepane">
+        <a href=' {{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>Edit</a>
+        <!-- this is how we pass arguments into the url_for() function -->
+        </br>
+        <a href = '{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = i.id ) }}'>Delete</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div>
       <a href="{{ url_for('welcome') }}">return</a>
       {# means the end of the loop. More over, {%endif%} means the end of the if statement #}
     </div>
-
   </body>
 
 </html>

@@ -1,14 +1,33 @@
 <html>
+    <head>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    </head>
     <body>
-        <form action= "{{url_for('newMenuItem', restaurant_id = restaurant_id)}}" method = 'POST'>
-
-        <p>Name:</p>
-        <input type = 'text' size='30' name = 'name' placeholder = 'name of the item'>
-        <input type = 'text' size='30' name = 'price' placeholder= 'price'>
-        <input type = 'text' size='30' name = 'description' placeholder= 'description'>
-        <input type = 'text' size='30' name = 'course' placeholder= 'course'>
-        <input type='submit' value='add'>
-        </form>
-        <a href= "{{url_for('restaurantMenu', restaurant_id = restaurant_id)}}">Cancel</a>
+        <div class="pane">
+            <form action= "{{url_for('newMenuItem', restaurant_id = restaurant_id)}}" method = 'POST'>
+                <dl>
+                    <dt>
+                        Name:
+                    </dt>
+                    <dd>
+                        <input type = 'text' size='30' name = 'name' placeholder = 'name of the item'>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>Price</dt>
+                    <dd><input type = 'text' size='30' name = 'price' placeholder= 'dollar'></dd>
+                </dl>
+                <dl>
+                    <dt>Description:</dt>
+                    <dd><input type = 'text' size='30' name = 'description' placeholder= 'describe how this item is'></dd>
+                </dl>
+                <dl>
+                    <dt>Course:</dt>
+                    <dd><input type = 'text' size='30' name = 'course' placeholder= 'course'></dd>
+                </dl>
+                <input type='submit' value='add'>
+            </form>
+            <a href= "{{url_for('restaurantMenu', restaurant_id = restaurant_id)}}">Cancel</a>
+        </div>
     </body>
 </html>

@@ -1,4 +1,8 @@
 <html>
+    <head>
+        <!-- here is how to add a reference to the css file -->
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    </head>
     <body>
         <h1>Welcome to the world of food!</h1>
         {% for restaurant in restaurants %}
